@@ -1,24 +1,29 @@
-# README
+# Albatross
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Albatross is a CMS for golf organisations.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+Albatross uses Docker to host the database. Ensure that Docker is installed and running.
 
-* System dependencies
+```bash
+$ docker-compose up
+```
 
-* Configuration
+You'll need to add the following entries to your hosts file:
 
-* Database creation
+```
+127.0.0.1 lvh.me
+```
 
-* Database initialization
+To run the application, you'll need to install the dependencies.
 
-* How to run the test suite
+```bash
+$ bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Finally, you can run the application.
 
-* Deployment instructions
-
-* ...
+```bash
+$ bundle exec rails s
+```
