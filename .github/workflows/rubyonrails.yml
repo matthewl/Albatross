@@ -51,4 +51,4 @@ jobs:
           cp config/database.ci.yml config/database.yml
           bundle exec rails db:schema:load
           bundle exec rails assets:precompile
-          bundle exec rspec
+          bundle exec railsl test
