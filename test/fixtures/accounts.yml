@@ -1,0 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+mapleshore_golf_club:
+  name: Mapleshore Golf Club
+
+drew_lang_pro_shop:
+  name: Drew Lang
