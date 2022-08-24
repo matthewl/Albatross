@@ -8,8 +8,8 @@ module Marketing
       account = Account.new_with_website(account_params)
 
       if account.save
-        # TODO: redirect to the newly created site
-        redirect_to marketing_home_path
+        website_url = account.websites.first.host_url(platform_host)
+        redirect_to website_url, allow_other_host: true
       else
         @account = account
         render :new, status: :unprocessable_entity

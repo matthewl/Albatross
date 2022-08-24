@@ -6,11 +6,11 @@ class SignUpTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     post "https://www.lvh.me/sign_up",
-      params: { account: { name: "ACME Golf & Country Club", subdomain: "acme-golf" } }
+      params: { account: { name: "Beechgrove Golf Club", subdomain: "beechgrove" } }
     assert_response :redirect
 
-    # follow_redirect!
-    # assert_response :success
-    # assert_select "p", "Title:\n  can create"
+    follow_redirect!
+    assert_response :success
+    assert_select "h1", "Hi, welcome to the Beechgrove Golf Club index page!"
   end
 end

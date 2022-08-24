@@ -47,4 +47,9 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  config.hosts << "www.lvh.me"
+  config.hosts << "mapleshore.lvh.me"
+  config.hosts << "sabrehills.lvh.me"
+  config.hosts << "beechgrove.lvh.me"
 end

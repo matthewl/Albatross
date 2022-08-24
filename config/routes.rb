@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       post "/sign_up", to: "accounts#create"
     end
   end
+
+  root "home#index"
 end
