@@ -16,7 +16,7 @@ class Account < ApplicationRecord
 
   def subdomain_is_unique
     if subdomain.present? && Website.find_by(subdomain: subdomain).present?
-      errors.add(:subdomain, "already exists")
+      errors.add(:subdomain, "has already been taken")
     end
   end
 end

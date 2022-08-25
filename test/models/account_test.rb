@@ -24,7 +24,7 @@ class AccountTest < ActiveSupport::TestCase
     account = Account.new(name: "Drew Lang", subdomain: "drewlang")
     account.valid?
 
-    assert_includes account.errors.full_messages, "Subdomain already exists"
+    assert_includes account.errors.full_messages, "Subdomain has already been taken"
     refute account.valid?
   end
 
