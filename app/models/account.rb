@@ -1,7 +1,7 @@
 class Account < ApplicationRecord
   attr_accessor :subdomain
 
-  has_many :websites
+  has_many :websites, validate: false
 
   validates :name, presence: true, uniqueness: true
   validates :subdomain, format: { with: /[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?/, message: "is invalid" }
