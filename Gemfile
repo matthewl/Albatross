@@ -23,4 +23,5 @@ group :development do
 end
 
 # Application dependencies
+gem "i18n-tasks"
 gem "tailwindcss-rails", "~> 2.0"
