@@ -25,3 +25,5 @@ end
 # Application dependencies
 gem "i18n-tasks"
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "importmap-rails", "~> 1.1"

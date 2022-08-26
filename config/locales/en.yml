@@ -1,5 +1,15 @@
 ---
 en:
+  admin:
+    websites:
+      edit:
+        essentials:
+          description: All the essentials for your website
+          title: Essentials
+        name: Website name
+        submit: Save
+      update:
+        success: Website updated successfully
   errors:
     messages:
       not_saved:
