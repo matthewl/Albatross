@@ -17,5 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    get '/' => 'dashboard#index', as: :root
+    resources :websites, only: %i[edit update]
+  end
   root "home#index"
 end
