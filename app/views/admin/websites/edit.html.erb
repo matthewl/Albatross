@@ -7,6 +7,7 @@
         <%= render partial: "shared/section_title", locals: { title: t(".essentials.title"), description: t(".essentials.description") } %>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
+        <%= render "shared/error_messages", resource: @website %>
         <div class="grid grid-cols-6 gap-6">
           <div class="col-span-6 space-y-2">
             <%= form.label :name, t(".name"), class: "block text-sm font-medium text-gray-700" %>
