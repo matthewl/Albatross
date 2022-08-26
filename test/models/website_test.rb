@@ -32,4 +32,23 @@ class WebsiteTest < ActiveSupport::TestCase
   test "host_url returns url" do
     assert_equal @website.host_url(".lvh.me"), "https://acmegolf.lvh.me"
   end
+
+  test "updates accounts name" do
+    website = websites(:mapleshore)
+    website.name = "Mapleshore Golf & Country Club"
+    website.save
+
+    assert_equal website.account.name, "Mapleshore Golf & Country Club"
+  end
+
+  test "does not update account name when more than one website exists" do
+    account = accounts(:mapleshore_golf_club)
+    website_params = { name: "Mapleshore Golf & Country Club", subdomain: "mapleshorecc" }
+    website = account.websites.create(website_params)
+
+    website.name = "Mapleshore Country Club"
+    website.save
+
+    assert_equal account.name, "Mapleshore Golf Club"
+  end
 end
