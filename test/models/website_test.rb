@@ -4,7 +4,7 @@ class WebsiteTest < ActiveSupport::TestCase
   def setup
     @website_name = "ACME Golf & Country Club"
     @subdomain = "acmegolf"
-    @website_params = { name: @website_name, subdomain: @subdomain }
+    @website_params = {name: @website_name, subdomain: @subdomain}
     @website = Website.new(@website_params)
   end
 
@@ -43,7 +43,7 @@ class WebsiteTest < ActiveSupport::TestCase
 
   test "does not update account name when more than one website exists" do
     account = accounts(:mapleshore_golf_club)
-    website_params = { name: "Mapleshore Golf & Country Club", subdomain: "mapleshorecc" }
+    website_params = {name: "Mapleshore Golf & Country Club", subdomain: "mapleshorecc"}
     website = account.websites.create(website_params)
 
     website.name = "Mapleshore Country Club"
