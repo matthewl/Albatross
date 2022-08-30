@@ -88,6 +88,7 @@ GEM
       reline (>= 0.3.1)
     digest (3.1.0)
     erubi (1.11.0)
+    geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     highline (2.0.3)
@@ -246,6 +247,7 @@ PLATFORMS
 DEPENDENCIES
   country_select
   debug
+  geocoder
   i18n-tasks
   importmap-rails (~> 1.1)
   pg (~> 1.1)

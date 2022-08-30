@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_26_143733) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_200001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_26_143733) do
     t.string "subdomain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["account_id"], name: "index_websites_on_account_id"
     t.index ["subdomain"], name: "unique_subdomains", unique: true
   end
