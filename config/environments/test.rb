@@ -52,4 +52,5 @@ Rails.application.configure do
   config.hosts << "mapleshore.lvh.me"
   config.hosts << "sabrehills.lvh.me"
   config.hosts << "beechgrove.lvh.me"
+  config.hosts << "oakridge.lvh.me"
 end

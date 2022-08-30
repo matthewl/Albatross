@@ -1,11 +1,21 @@
 ---
 en:
+  activerecord:
+    attributes:
+      location:
+        address_line_one: Address
+        locality: Town / City
+        post_code: Zip / Post Code
+        region: State / Province
   admin:
     websites:
       edit:
         essentials:
           description: All the essentials for your website
           title: Essentials
+        location:
+          description: Provides an integrated map for your website
+          title: Location
         name: Website name
         submit: Save
       update:

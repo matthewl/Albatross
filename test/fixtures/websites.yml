@@ -3,6 +3,11 @@ mapleshore:
   name: Mapleshore Golf Club
   subdomain: mapleshore
 
+beechgrove:
+  account: beechgrove_golf_club
+  name: Beechgrove Golf Club
+  subdomain: beechgrove
+
 drew_lang:
   account: drew_lang_pro_shop
   name: Drew Lang

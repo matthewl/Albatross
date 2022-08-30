@@ -9,12 +9,75 @@
       <div class="mt-5 md:mt-0 md:col-span-2">
         <%= render "shared/error_messages", resource: @website %>
         <div class="grid grid-cols-6 gap-6">
-          <div class="col-span-6 space-y-2">
+          <div class="col-span-4 space-y-2">
             <%= form.label :name, t(".name"), class: "block text-sm font-medium text-gray-700" %>
             <div class="mt-1">
               <%= form.text_field :name, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <%= render partial: "shared/section_title", locals: { title: t(".location.title"), description: t(".location.description") } %>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="grid grid-cols-6 gap-6">
+          <%= form.fields_for :location do |location_form| %>
+            <%= location_form.hidden_field(:id) %>
+            <div class="col-span-6 sm:col-span-4 space-y-2">
+              <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :address_line_one)) %>
+              <div class="mt-1">
+                <%= location_form.text_field :address_line_one, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+              </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <%= location_form.label :address_line_two, class: "sr-only" %>
+              <%= location_form.text_field :address_line_two, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <%= location_form.label :address_line_three, class: "sr-only" %>
+              <%= location_form.text_field :address_line_three, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <%= location_form.label :address_line_four, class: "sr-only" %>
+              <%= location_form.text_field :address_line_four, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <div class="flex gap-6">
+                <div class="w-1/2">
+                  <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :locality)) %>
+                  <%= location_form.text_field :locality, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+                </div>
+
+                <div class="w-1/2">
+                  <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :region)) %>
+                  <%= location_form.text_field :locality, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <div class="flex gap-6">
+                <div class="w-1/2">
+                  <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :post_code)) %>
+                  <%= location_form.text_field :post_code, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+                </div>
+                <div class="w-1/2">
+                  <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :country)) %>
+                  <%= location_form.country_select :country, { priority_countries: ["GB"]}, { class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
