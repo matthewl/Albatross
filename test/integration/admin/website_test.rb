@@ -7,7 +7,7 @@ class Admin::WebsiteTest < ActionDispatch::IntegrationTest
     @website_name = "Mapleshore Country Club"
   end
 
-  test "can update the website name" do
+  test "can update the website core attributes" do
     get "#{@admin_url}/edit"
     put @admin_url, params: {website: {name: @website_name}}
     follow_redirect!

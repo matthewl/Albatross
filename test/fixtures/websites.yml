@@ -2,13 +2,16 @@ mapleshore:
   account: mapleshore_golf_club
   name: Mapleshore Golf Club
   subdomain: mapleshore
+  theme: parkland
 
 beechgrove:
   account: beechgrove_golf_club
   name: Beechgrove Golf Club
   subdomain: beechgrove
+  theme: parkland
 
 drew_lang:
   account: drew_lang_pro_shop
   name: Drew Lang
   subdomain: drewlang
+  theme: parkland

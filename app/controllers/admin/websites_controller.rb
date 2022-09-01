@@ -19,7 +19,7 @@ module Admin
     def website_params
       params.require(:website)
         .permit(
-          :name,
+          :name, :theme,
           location_attributes: [
             :id, :name, :address_line_one, :address_line_two, :address_line_three,
             :address_line_four, :locality, :region, :post_code, :country,
