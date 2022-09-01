@@ -7,6 +7,8 @@ en:
         locality: Town / City
         post_code: Zip / Post Code
         region: State / Province
+      website:
+        name: Website name
   admin:
     websites:
       edit:

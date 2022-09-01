@@ -8,6 +8,14 @@ class WebsiteTest < ActiveSupport::TestCase
     @website = Website.new(@website_params)
   end
 
+  test "new website has a theme" do
+    website = Website.new(@website_params)
+    website.account = accounts(:mapleshore_golf_club)
+    website.save
+
+    assert_equal "parkland", website.theme
+  end
+
   test "website is valid" do
     @website.account = accounts(:mapleshore_golf_club)
     assert @website.valid?

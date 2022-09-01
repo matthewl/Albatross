@@ -10,9 +10,16 @@
         <%= render "shared/error_messages", resource: @website %>
         <div class="grid grid-cols-6 gap-6">
           <div class="col-span-4 space-y-2">
-            <%= form.label :name, t(".name"), class: "block text-sm font-medium text-gray-700" %>
+            <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
             <div class="mt-1">
               <%= form.text_field :name, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+            </div>
+          </div>
+          <div class="col-span-4 space-y-2">
+            <%= form.label :theme, class: "block text-sm font-medium text-gray-700" %>
+            <div class="mt-1">
+              <!-- TODO: Disabled until further themes available -->
+              <%= form.select :theme, @website.themes, {}, { class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm", disabled: true } %>
             </div>
           </div>
         </div>
@@ -73,7 +80,7 @@
                 </div>
                 <div class="w-1/2">
                   <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :country)) %>
-                  <%= location_form.country_select :country, { priority_countries: ["GB"]}, { class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
+                  <%= location_form.country_select :country, { priority_countries: ["GB"]}, { class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" } %>
                 </div>
               </div>
             </div>
