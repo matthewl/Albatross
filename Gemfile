@@ -22,6 +22,11 @@ group :development do
   gem "web-console"
 end
 
+group :test do
+  gem "minitest-rails", "~> 7.0.0"
+  gem "minitest-reporters"
+end
+
 # Application dependencies
 gem "country_select"
 gem "geocoder"

@@ -1,4 +1,6 @@
 class Website < ApplicationRecord
+  DEFAULT_THEME = "parkland"
+
   belongs_to :account
 
   has_one :location, as: :locatable, dependent: :destroy
@@ -13,17 +15,31 @@ class Website < ApplicationRecord
     self.theme = "parkland"
   end
 
+  def home_view_path
+    "themes/#{current_or_default_theme}/home"
+  end
+
   def host_url(platform_host)
     "https://#{subdomain}#{platform_host}"
   end
 
+  def layout_path
+    "themes/#{current_or_default_theme}"
+  end
+
   def themes
     [
-      ["Parkland", "parkland"]
+      ["Links", "links"],
+      ["Parkland", "parkland"],
+      ["Desert", "desert"]
     ]
   end
 
   private
+
+  def current_or_default_theme
+    theme.blank? ? DEFAULT_THEME : theme
+  end
 
   def update_account_name
     if account.websites.count == 1 && account.name != name
