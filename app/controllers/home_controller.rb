@@ -2,11 +2,13 @@ class HomeController < ApplicationController
   PROVIDER_DOMAIN = "www.albatross.com"
 
   def index
-    if subdomain_host?
-      @website = Website.find_sole_by(subdomain: request.subdomain)
+    @website = if subdomain_host?
+      Website.find_sole_by(subdomain: request.subdomain)
     else
-      @website = Website.find_sole_by(url: request.host)
+      Website.find_sole_by(url: request.host)
     end
+
+    render @website.home_view_path, layout: @website.layout_path
   end
 
   private
