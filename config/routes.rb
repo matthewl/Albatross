@@ -11,15 +11,20 @@ end
 Rails.application.routes.draw do
   constraints(MarketingListConstraint.new) do
     scope module: "marketing" do
-      get "/", to: "home#index", as: "marketing_home"
       get "/sign_up", to: "accounts#new"
       post "/sign_up", to: "accounts#create"
+
+      resources :themes, only: [:index]
+
+      get "/", to: "home#index", as: "marketing_home"
     end
   end
 
   namespace :admin do
-    get '/' => 'dashboard#index', as: :root
+    get "/", to: "dashboard#index", as: :root
+
     resources :websites, only: %i[edit update]
   end
+
   root "home#index"
 end
