@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_201323) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_15_103705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -19,6 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_201323) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "headers", force: :cascade do |t|
+    t.bigint "website_id", null: false
+    t.string "title"
+    t.string "welcome"
+    t.string "sub_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["website_id"], name: "index_headers_on_website_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -52,5 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_201323) do
     t.index ["subdomain"], name: "unique_subdomains", unique: true
   end
 
+  add_foreign_key "headers", "websites"
   add_foreign_key "websites", "accounts"
 end
