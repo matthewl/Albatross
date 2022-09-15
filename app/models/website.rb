@@ -10,6 +10,7 @@ class Website < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :subdomain, uniqueness: true, format: {with: /[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?/, message: "is invalid"}
 
+  after_create :create_header
   after_update :update_account_name
 
   before_create do
@@ -40,6 +41,14 @@ class Website < ApplicationRecord
 
   def current_or_default_theme
     theme.blank? ? DEFAULT_THEME : theme
+  end
+
+  def create_header
+    headers.create(
+      title: name,
+      welcome: "Welcome to",
+      sub_title: "Website under construction"
+    )
   end
 
   def update_account_name

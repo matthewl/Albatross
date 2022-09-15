@@ -40,6 +40,17 @@ class WebsiteTest < ActiveSupport::TestCase
       assert_equal "parkland", website.theme
     end
 
+    test "after_create creates a single header" do
+      website = Website.new(@website_params)
+      website.account = accounts(:mapleshore_golf_club)
+      website.save
+
+      assert_equal 1, website.headers.count
+      assert_equal "ACME Golf & Country Club", website.headers.first.title
+      assert_equal "Welcome to", website.headers.first.welcome
+      assert_equal "Website under construction", website.headers.first.sub_title
+    end
+
     test "after_update updates accounts name" do
       website = websites(:mapleshore)
       website.name = "Mapleshore Golf & Country Club"
