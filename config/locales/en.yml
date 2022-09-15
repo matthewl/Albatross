@@ -2,6 +2,10 @@
 en:
   activerecord:
     attributes:
+      header:
+        title: Title
+        sub_title: Sub-title
+        welcome: Welcome
       location:
         address_line_one: Address
         locality: Town / City
@@ -10,6 +14,14 @@ en:
       website:
         name: Website name
   admin:
+    headers:
+      edit:
+        essentials:
+          description: Your website's name and an optional sub-title
+          title: Essentials
+        submit: Save
+      update:
+        success: Header updated successfully
     websites:
       edit:
         essentials:
