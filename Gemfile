@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.3"
 
 # Rails core gems
+gem "image_processing", ">= 1.2"
 gem "importmap-rails", "~> 1.1"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "sprockets-rails"
