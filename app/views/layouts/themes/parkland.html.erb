@@ -11,7 +11,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <link href="https://fonts.googleapis.com/css2?family=<%= Themes::Parkland.body_font_family %>:ital,wght@0,400;1,700&family=<%= Themes::Parkland.headings_font_family %>:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
