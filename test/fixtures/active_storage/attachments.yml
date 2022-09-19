@@ -1,0 +1,5 @@
+mapleshore_header_background:
+  name: background_image
+  record_type: Header
+  record_id: <%= ActiveRecord::FixtureSet.identify(:mapleshore_welcome) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:mountains) %>

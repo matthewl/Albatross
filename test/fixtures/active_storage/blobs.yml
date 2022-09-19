@@ -1,0 +1,3 @@
+mountains: <%= ActiveStorage::FixtureSet.blob(
+  filename: "mountains.jpg"
+) %>

@@ -4,7 +4,7 @@ class AccountTest < ActiveSupport::TestCase
   def setup
     @account_name = "ACME Golf & Country Club"
     @subdomain = "acmegolf"
-    @account_params = { name: @account_name, subdomain: @subdomain }
+    @account_params = {name: @account_name, subdomain: @subdomain}
     @account = Account.new(@account_params)
   end
 

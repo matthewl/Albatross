@@ -3,8 +3,8 @@ en:
   activerecord:
     attributes:
       header:
-        title: Title
         sub_title: Sub-title
+        title: Title
         welcome: Welcome
       location:
         address_line_one: Address
@@ -16,6 +16,9 @@ en:
   admin:
     headers:
       edit:
+        background:
+          description: Your website's background image
+          title: Background
         essentials:
           description: Your website's name and an optional sub-title
           title: Essentials
@@ -36,6 +39,9 @@ en:
         success: Website updated successfully
   errors:
     messages:
+      attached: is not attached
+      content_type_invalid: image format not supported
+      max_file_size_invalid: image over %{size}
       not_saved:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
