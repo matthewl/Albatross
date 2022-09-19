@@ -48,6 +48,10 @@ Rails.application.configure do
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
+  # Store uploaded files on the local file system in a temporary directory.
+  config.active_storage.service = :test
+
+  # Allowed hosts for test environment.
   config.hosts << "www.lvh.me"
   config.hosts << "mapleshore.lvh.me"
   config.hosts << "sabrehills.lvh.me"

@@ -3,8 +3,8 @@ en:
   activerecord:
     attributes:
       header:
-        title: Title
         sub_title: Sub-title
+        title: Title
         welcome: Welcome
       location:
         address_line_one: Address
@@ -14,12 +14,22 @@ en:
       website:
         name: Website name
   admin:
+    background_image_component:
+      alt: Background image
     headers:
       edit:
+        background:
+          description: Your website's background image
+          title: Background
+        background_image: Background image
+        change: Upload
         essentials:
           description: Your website's name and an optional sub-title
           title: Essentials
         submit: Save
+        upload_error_text: Something went wrong uploading your image, please try again.
+        upload_file: Upload a file
+        upload_help_text: PNG, JPG, GIF up to 10MB
       update:
         success: Header updated successfully
     websites:
@@ -36,6 +46,9 @@ en:
         success: Website updated successfully
   errors:
     messages:
+      attached: is not attached
+      content_type_invalid: image format not supported
+      max_file_size_invalid: image over %{size}
       not_saved:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"

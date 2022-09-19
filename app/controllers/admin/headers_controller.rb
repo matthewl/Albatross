@@ -16,7 +16,7 @@ module Admin
     private
 
     def header_params
-      params.require(:header).permit(:title, :sub_title, :welcome)
+      params.require(:header).permit(:title, :sub_title, :welcome, :background_image)
     end
   end
 end
