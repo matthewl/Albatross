@@ -3,7 +3,7 @@ class CreateWebsites < ActiveRecord::Migration[7.0]
     create_table :websites do |t|
       t.references :account, null: false, foreign_key: true
       t.string :name
-      t.string :subdomain, index: { unique: true, name: 'unique_subdomains' }
+      t.string :subdomain, index: {unique: true, name: "unique_subdomains"}
 
       t.timestamps
     end

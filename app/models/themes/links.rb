@@ -31,11 +31,11 @@ module Themes
     end
 
     def self.body_font_family
-      BODY_FONT_FAMILY.gsub(" ", "+")
+      BODY_FONT_FAMILY.tr(" ", "+")
     end
 
     def self.headings_font_family
-      HEADINGS_FONT_FAMILY.gsub(" ", "+")
+      HEADINGS_FONT_FAMILY.tr(" ", "+")
     end
   end
 end
