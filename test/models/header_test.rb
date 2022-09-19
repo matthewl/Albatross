@@ -48,4 +48,14 @@ class HeaderTest < ActiveSupport::TestCase
       end
     end
   end
+
+  test "returns true if the active header has a background image" do
+    website = websites(:mapleshore)
+    assert_equal true, website.headers.active_header_with_background?
+  end
+
+  test "returns false if the active header does not have a background image" do
+    website = websites(:drew_lang)
+    assert_equal false, website.headers.active_header_with_background?
+  end
 end
