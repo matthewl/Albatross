@@ -55,13 +55,18 @@
 
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 xl:px-0 w-3/4">
           <div class="px-16 py-4 mx-auto w-full text-center text-white">
-            <p class="text-xl uppercase">Welcome to</p>
+            <p class="text-xl uppercase">
+              <%= @website.headers.active_header.welcome %>
+            </p>
+
             <h1 class="py-8 text-6xl">
-              <%= @website.name %>
+              <%= @website.headers.active_header.title %>
             </h1>
+
             <hr>
+
             <p class="py-8 text-3xl">
-              The best golf course in the world
+              <%= @website.headers.active_header.sub_title %>
             </p>
           </div>
         </div>
