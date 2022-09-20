@@ -17,15 +17,24 @@
   <body class="bg-sky-50 links">
     <header>
       <section class="w-full h-screen relative">
-        <%= image_tag "sabrehill-header-background.jpg", class: "object-cover h-screen w-full" %>
+        <% if @website.headers.active_header_with_background? %>
+          <%= image_tag @website.headers.first.background_image, class: "object-cover h-screen w-full" %>
+        <% else %>
+          <%= image_tag "sabrehill-header-background.jpg", class: "object-cover h-screen w-full" %>
+        <% end %>
+
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 xl:px-0 w-3/4">
           <div class="px-16 py-4 mx-auto w-full text-center text-white">
             <h1 class="py-8 text-6xl font-extrabold">
-              Sabrehills Golf Club
+              <%= @website.headers.active_header.title %>
             </h1>
-            <p class="text-xl">Welcome to</p>
+
+            <p class="text-xl">
+              <%= @website.headers.active_header.welcome %>
+            </p>
+
             <p class="py-4 text-2xl">
-              The best golf course in the world
+              <%= @website.headers.active_header.sub_title %>
             </p>
           </div>
         </div>
