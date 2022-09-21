@@ -88,6 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_20_191108) do
     t.string "theme", default: ""
     t.string "banner_text", default: ""
     t.boolean "banner_enabled", default: false
+    t.datetime "banner_expires_at"
     t.index ["account_id"], name: "index_websites_on_account_id"
     t.index ["subdomain"], name: "unique_subdomains", unique: true
   end
