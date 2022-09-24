@@ -29,6 +29,36 @@ class WebsiteTest < ActiveSupport::TestCase
       assert_includes website.errors.full_messages, "Subdomain has already been taken"
       refute website.valid?
     end
+
+    test "website is invalid with long banner text" do
+      @website.banner_enabled = true
+      @website.banner_text = "a" * 76
+
+      refute @website.valid?
+      assert_includes @website.errors.full_messages, "Banner text is too long (maximum is 75 characters)"
+    end
+
+    test "banner length validation skipped when banner disabled" do
+      @website.banner_text = "a" * 76
+      @website.account = accounts(:mapleshore_golf_club)
+
+      assert @website.valid?
+    end
+
+    test "wbesite is invalid with a past banner expiration date" do
+      @website.banner_enabled = true
+      @website.banner_expires_at = Date.yesterday
+
+      refute @website.valid?
+      assert_includes @website.errors.full_messages, "Banner expiration date can't be in the past"
+    end
+
+    test "banner expiration validation skipped when banner disabled" do
+      @website.banner_expires_at = Date.yesterday
+      @website.account = accounts(:mapleshore_golf_club)
+
+      assert @website.valid?
+    end
   end
 
   class CallbacksTest < WebsiteTest
