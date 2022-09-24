@@ -19,11 +19,10 @@ module Admin
     def website_params
       params.require(:website)
         .permit(
-          :name, :theme,
+          :name, :theme, :banner_enabled, :banner_expires_at, :banner_text,
           location_attributes: [
             :id, :name, :address_line_one, :address_line_two, :address_line_three,
-            :address_line_four, :locality, :region, :post_code, :country,
-            :website_id
+            :address_line_four, :locality, :region, :post_code, :country, :website_id
           ]
         )
     end

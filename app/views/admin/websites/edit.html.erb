@@ -1,13 +1,12 @@
 <% content_for(:title, "Website") %>
-
-<%= form_with(model: [:admin, @website], local: true, multipart: true, class: "space-y-8") do |form| %>
+<%= render "shared/error_messages", resource: @website %>
+<%= form_with(model: [:admin, @website], local: true, multipart: true, data: { turbo: false }, class: "space-y-8") do |form| %>
   <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="md:col-span-1">
         <%= render partial: "shared/section_title", locals: { title: t(".essentials.title"), description: t(".essentials.description") } %>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
-        <%= render "shared/error_messages", resource: @website %>
         <div class="grid grid-cols-6 gap-6">
           <div class="col-span-4 space-y-2">
             <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
@@ -30,6 +29,83 @@
   <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="md:col-span-1">
+        <%= render partial: "shared/section_title", locals: { title: t(".banner.title"), description: t(".banner.description") } %>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="grid grid-cols-6 gap-6" x-data="{ <%= form.object.banner_enabled? ? "on: true" : "on: false" %> }">
+          <div class="col-span-4 space-y-2">
+            <%= render(Admin::FormLabelComponent.new(form: form, attribute: :banner_enabled)) %>
+            <div class="mt-1">
+              <%= form.hidden_field :banner_enabled, { "x-model" => "on" } %>
+              <button
+                type="button"
+                class="bg-gray-400 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                :class="{ 'bg-green-600': on, 'bg-gray-200': !(on) }"
+                aria-pressed="false"
+                :aria-pressed="on.toString()"
+                @click="on = !on"
+                x-state:on="Enabled"
+                x-state:off="Not Enabled"
+              >
+                <span class="sr-only">
+                  Display the banner?
+                </span>
+
+                <span
+                  class="translate-x-0 pointer-events-none relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
+                  x-state:on="Enabled"
+                  x-state:off="Not Enabled"
+                  :class="{ 'translate-x-5': on, 'translate-x-0': !(on) }"
+                >
+                  <span
+                    class="opacity-100 ease-in duration-200 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+                    aria-hidden="true"
+                    x-state:on="Enabled"
+                    x-state:off="Not Enabled"
+                    :class="{ 'opacity-0 ease-out duration-100': on, 'opacity-100 ease-in duration-200': !(on) }"
+                  >
+                    <svg class="bg-white h-3 w-3 text-gray-600" fill="none" viewBox="0 0 12 12">
+                      <path d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+
+                  <span
+                    class="opacity-0 ease-out duration-100 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+                    aria-hidden="true"
+                    x-state:on="Enabled"
+                    x-state:off="Not Enabled"
+                    :class="{ 'opacity-100 ease-in duration-200': on, 'opacity-0 ease-out duration-100': !(on) }"
+                  >
+                    <svg class="bg-white h-3 w-3 text-blue-600" fill="currentColor" viewBox="0 0 12 12">
+                      <path d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z"></path>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-span-4 space-y-2" x-show="on = on">
+            <%= render(Admin::FormLabelComponent.new(form: form, attribute: :banner_text)) %>
+            <div class="mt-1">
+              <%= form.text_field :banner_text, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+            </div>
+          </div>
+
+          <div class="col-span-4 space-y-2" x-show="on = on">
+            <%= render(Admin::FormLabelComponent.new(form: form, attribute: :banner_expires_at)) %>
+            <div class="mt-1">
+              <%= form.date_field :banner_expires_at, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
         <%= render partial: "shared/section_title", locals: { title: t(".location.title"), description: t(".location.description") } %>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
@@ -37,8 +113,8 @@
           <%= form.fields_for :location do |location_form| %>
             <%= location_form.hidden_field(:id) %>
             <div class="col-span-6 sm:col-span-4 space-y-2">
-              <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :address_line_one)) %>
               <div class="mt-1">
+                <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :address_line_one)) %>
                 <%= location_form.text_field :address_line_one, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
               </div>
             </div>
@@ -67,7 +143,7 @@
 
                 <div class="w-1/2">
                   <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :region)) %>
-                  <%= location_form.text_field :locality, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+                  <%= location_form.text_field :region, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
                 </div>
               </div>
             </div>
@@ -77,10 +153,6 @@
                 <div class="w-1/2">
                   <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :post_code)) %>
                   <%= location_form.text_field :post_code, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
-                </div>
-                <div class="w-1/2">
-                  <%= render(Admin::FormLabelComponent.new(form: location_form, attribute: :country)) %>
-                  <%= location_form.country_select :country, { priority_countries: ["GB"]}, { class: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" } %>
                 </div>
               </div>
             </div>

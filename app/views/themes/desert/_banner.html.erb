@@ -1,0 +1,9 @@
+<% if @website.banner_enabled? && @website.banner_expires_at < DateTime.now %>
+  <section class="bg-blue-500 p-4 text-center lg:px-4">
+    <div class="flex items-center rounded-full bg-blue-700 p-2 px-4 leading-none text-blue-100 lg:inline-flex" role="alert">
+      <span class="flex-auto font-semibold leading-loose">
+        <%= @website.banner_text %>
+      </span>
+    </div>
+  </section>
+<% end %>
