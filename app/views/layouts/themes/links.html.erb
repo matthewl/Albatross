@@ -16,12 +16,17 @@
 
   <body class="bg-sky-50 links">
     <header>
+      <!-- Background image -->
       <section class="w-full h-screen relative">
         <% if @website.headers.active_header_with_background? %>
-          <%= image_tag @website.headers.first.background_image, class: "object-cover h-screen w-full" %>
+          <%= image_tag @website.headers.first.background_image, class: "object-cover h-screen w-full brightness-90" %>
         <% else %>
-          <%= image_tag "sabrehill-header-background.jpg", class: "object-cover h-screen w-full" %>
+          <%= image_tag "sabrehill-header-background.jpg", class: "object-cover h-screen w-full brightness-90" %>
         <% end %>
+
+        <div class="absolute top-0 inset-x-0">
+          <%= render partial: "themes/links/banner" %>
+        </div>
 
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 xl:px-0 w-3/4">
           <div class="px-16 py-4 mx-auto w-full text-center text-white">

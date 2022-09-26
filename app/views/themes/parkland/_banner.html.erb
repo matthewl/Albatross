@@ -1,7 +1,7 @@
-<% if @website.banner_enabled? && @website.banner_expires_at < DateTime.now %>
-  <section class="bg-blue-500 p-4 text-center lg:px-4">
-    <div class="flex rounded bg-blue-700 p-2 px-4 leading-none text-blue-100 lg:inline-flex" role="alert">
-      <span class="flex-auto font-semibold leading-loose">
+<% if @website.banner_enabled? && @website.banner_expires_at > DateTime.now %>
+  <section class="p-4 text-center">
+    <div class="flex items-center rounded bg-emerald-100 p-2 px-8 leading-none text-emerald-800 lg:inline-flex">
+      <span class="flex-auto font-semibold leading-loose text-sm">
         <%= @website.banner_text %>
       </span>
     </div>
