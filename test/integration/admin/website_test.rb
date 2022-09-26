@@ -8,14 +8,36 @@ class Admin::WebsiteTest < ActionDispatch::IntegrationTest
   end
 
   test "can update the website core attributes" do
+    params = {
+      website: {
+        name: @website_name,
+        banner_enabled: true,
+        banner_text: "Tree felling on the 1st hole today",
+        banner_expires_at: Date.tomorrow
+      }
+    }
+
     get "#{@admin_url}/edit"
-    put @admin_url, params: {website: {name: @website_name}}
+    put @admin_url, params: params
     follow_redirect!
 
     get "#{@admin_url}/edit"
+
     assert_response :success
     assert_select "#website_name" do
       assert_select "[value=?]", @website_name
+    end
+
+    assert_select "#website_banner_enabled" do
+      assert_select "[value=?]", "true"
+    end
+
+    assert_select "#website_banner_expires_at" do
+      assert_select "[value=?]", Date.tomorrow.to_s
+    end
+
+    assert_select "#website_banner_text" do
+      assert_select "[value=?]", "Tree felling on the 1st hole today"
     end
   end
 

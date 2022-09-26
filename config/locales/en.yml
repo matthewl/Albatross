@@ -13,19 +13,21 @@ en:
         region: State / Province
       website:
         name: Website name
+        banner_enabled: Enable banner?
+        banner_expires_at: Banner expiration date
   admin:
     background_image_component:
       alt: Background image
     headers:
       edit:
         background:
-          description: Your website's background image
+          description: Your website's background image.
           title: Background
         background_image: Background image
         change: Upload
         essentials:
           description: Your website's name and an optional sub-title
-          title: Essentials
+          title: Banner
         submit: Save
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
@@ -34,11 +36,14 @@ en:
         success: Header updated successfully
     websites:
       edit:
+        banner:
+          description: A small information banner for the top of your website.
+          title: Banner
         essentials:
-          description: All the essentials for your website
+          description: All the essentials for your website.
           title: Essentials
         location:
-          description: Provides an integrated map for your website
+          description: Provides an integrated map for your website.
           title: Location
         name: Website name
         submit: Save

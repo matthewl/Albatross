@@ -1,0 +1,9 @@
+<% if @website.display_banner? %>
+  <section class="p-4 text-center">
+    <div class="flex items-center rounded bg-emerald-100 p-2 px-8 leading-none text-emerald-800 lg:inline-flex">
+      <span class="flex-auto font-semibold leading-loose text-sm">
+        <%= @website.banner_text %>
+      </span>
+    </div>
+  </section>
+<% end %>
