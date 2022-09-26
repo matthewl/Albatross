@@ -45,7 +45,7 @@ class WebsiteTest < ActiveSupport::TestCase
       assert @website.valid?
     end
 
-    test "wbesite is invalid with a past banner expiration date" do
+    test "website is invalid with a past banner expiration date" do
       @website.banner_enabled = true
       @website.banner_expires_at = Date.yesterday
 
@@ -102,6 +102,34 @@ class WebsiteTest < ActiveSupport::TestCase
   end
 
   class InstanceTest < WebsiteTest
+    test "display_banner? returns true" do
+      @website.account = accounts(:mapleshore_golf_club)
+      @website.banner_enabled = true
+      @website.banner_expires_at = Date.tomorrow
+      @website.banner_text = "Some major announcement"
+
+      assert @website.display_banner?
+    end
+
+    test "display_banner? returns false" do
+      @website.account = accounts(:mapleshore_golf_club)
+      @website.banner_expires_at = Date.tomorrow
+      @website.banner_text = "Some major announcement"
+
+      refute @website.display_banner?
+
+      @website.banner_enabled = true
+      @website.banner_expires_at = Date.yesterday
+
+      refute @website.display_banner?
+
+      @website.banner_enabled = true
+      @website.banner_expires_at = Date.tomorrow
+      @website.banner_text = ""
+
+      refute @website.display_banner?
+    end
+
     test "host_url returns url" do
       assert_equal @website.host_url(".lvh.me"), "https://acmegolf.lvh.me"
     end
