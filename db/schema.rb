@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_20_191108) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_28_062756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -77,6 +77,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_20_191108) do
     t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.bigint "website_id", null: false
+    t.string "title"
+    t.string "status", default: "draft"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["website_id"], name: "index_posts_on_website_id"
+  end
+
   create_table "websites", force: :cascade do |t|
     t.bigint "account_id", null: false
     t.string "name"
@@ -96,5 +106,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_20_191108) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "headers", "websites"
+  add_foreign_key "posts", "websites"
   add_foreign_key "websites", "accounts"
 end
