@@ -4,6 +4,7 @@ class Website < ApplicationRecord
   belongs_to :account
 
   has_many :headers, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_one :location, as: :locatable, dependent: :destroy
   accepts_nested_attributes_for :location
 
