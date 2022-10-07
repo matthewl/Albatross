@@ -5,3 +5,5 @@ import "./controllers"
 import Alpine from 'alpinejs'
 window.Alpine = Alpine
 Alpine.start()
+import "trix"
+import "@rails/actiontext"

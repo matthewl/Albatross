@@ -3,7 +3,16 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
 
+  has_rich_text :content
+
   before_create :set_slug
+
+  def self.statuses
+    [
+      ["Draft - not ready for publishing", "draft"],
+      ["Publish - ready to be published", "publish"]
+    ]
+  end
 
   def set_slug
     return if slug.present?
