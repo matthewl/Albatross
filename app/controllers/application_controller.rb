@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :success, :error
+
   private
 
   def platform_host

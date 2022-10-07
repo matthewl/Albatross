@@ -12,9 +12,9 @@ en:
         post_code: Zip / Post Code
         region: State / Province
       website:
-        name: Website name
         banner_enabled: Enable banner?
         banner_expires_at: Banner expiration date
+        name: Website name
   admin:
     background_image_component:
       alt: Background image
@@ -35,20 +35,22 @@ en:
       update:
         success: Header updated successfully
     posts:
+      create:
+        success: Post created successfully
+      destroy:
+        success: Post deleted successfully
       edit:
         essentials:
           description: The title and body of your post
           title: Essentials
         submit: Update post
-      update:
-        success: Post updated successfully
       new:
         essentials:
           description: The title and body of your post
           title: Essentials
         submit: Create post
-      create:
-        success: Post created successfully
+      update:
+        success: Post updated successfully
     websites:
       edit:
         banner:

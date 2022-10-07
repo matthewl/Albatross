@@ -13,6 +13,7 @@ class Admin::PostsTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     post @admin_url, params: {post: {title: title, status: "published", content: "This is a test"}}
+    assert_equal "Post created successfully", flash[:success]
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -33,6 +34,7 @@ class Admin::PostsTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     put "#{@admin_url}/#{post_id}", params: {post: {title: title, status: status, content: content}}
+    assert_equal "Post updated successfully", flash[:success]
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -47,5 +49,6 @@ class Admin::PostsTest < ActionDispatch::IntegrationTest
     assert_difference("Post.count", -1) do
       delete "#{@admin_url}/#{posts(:mapleshore_hello_world).id}"
     end
+    assert_equal "Post deleted successfully", flash[:success]
   end
 end

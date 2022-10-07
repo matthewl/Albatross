@@ -11,7 +11,7 @@ module Admin
     def create
       @post = @current_website.posts.new(post_params)
       if @post.update(post_params)
-        redirect_to admin_posts_path, notice: t(".success")
+        redirect_to admin_posts_path, success: t(".success")
       else
         render :edit
       end
