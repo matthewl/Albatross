@@ -28,6 +28,10 @@ class Website < ApplicationRecord
     "themes/#{current_or_default_theme}/home"
   end
 
+  def view_path(view = "home")
+    "themes/#{current_or_default_theme}/#{view}"
+  end
+
   def host_url(platform_host)
     "https://#{subdomain}#{platform_host}"
   end
