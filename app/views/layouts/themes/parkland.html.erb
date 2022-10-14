@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="<%= @website.name %>">
-    <meta name="author" content="<%= @website.name %>">
-    <title>Welcome to <%= @website.name %></title>
+    <meta name="description" content="<%= @current_website.name %>">
+    <meta name="author" content="<%= @current_website.name %>">
+    <title>Welcome to <%= @current_website.name %></title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -45,8 +45,8 @@
         </nav>
       </div>
       -->
-      <%= render(Themes::Parkland::HeaderComponent.new(header: @website.headers.active_header)) do |c| %>
-        <%= c.with_banner(website: @website)%>
+      <%= render(Themes::Parkland::HeaderComponent.new(header: @current_website.headers.active_header)) do |c| %>
+        <%= c.with_banner(website: @current_website)%>
       <% end %>
     </header>
 
