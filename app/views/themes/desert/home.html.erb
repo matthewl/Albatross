@@ -1,3 +1,2 @@
-<h1 class="text-3xl font-bold underline">
-  Hi, welcome to the <%= @website.name %> index page!
-</h1>
+<!-- Recent Posts -->
+<%= render(Themes::Desert::RecentPostsComponent.new(website: @current_website)) %>
