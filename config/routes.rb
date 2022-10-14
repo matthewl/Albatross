@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       get "/sign_up", to: "accounts#new"
       post "/sign_up", to: "accounts#create"
 
-      resources :themes, only: [:index]
+      get "/themes/desert", to: "themes#desert"
+      get "/themes/links", to: "themes#links"
+      get "/themes/parkland", to: "themes#parkland"
 
       get "/", to: "home#index", as: "marketing_home"
     end
@@ -24,8 +26,11 @@ Rails.application.routes.draw do
     get "/", to: "dashboard#index", as: :root
 
     resources :headers, only: %i[edit update]
+    resources :posts
     resources :websites, only: %i[edit update]
   end
+
+  resources :posts, only: %i[show]
 
   root "home#index"
 end

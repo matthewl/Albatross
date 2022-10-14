@@ -31,6 +31,7 @@ end
 
 # Application dependencies
 gem "country_select"
+gem "faker"
 gem "geocoder"
 gem "i18n-tasks"
 gem "tailwindcss-rails", "~> 2.0"

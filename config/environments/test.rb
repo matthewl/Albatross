@@ -54,6 +54,7 @@ Rails.application.configure do
   # Allowed hosts for test environment.
   config.hosts << "www.lvh.me"
   config.hosts << "mapleshore.lvh.me"
+  config.hosts << "drewlang.lvh.me"
   config.hosts << "sabrehills.lvh.me"
   config.hosts << "beechgrove.lvh.me"
   config.hosts << "oakridge.lvh.me"

@@ -1,0 +1,17 @@
+<article class="mx-auto max-w-2xl py-12 px-4 divide-dashed divide-y-2 divide-gray-300/50">
+  <div class="space-y-4 pb-8">
+    <h2 class="text-center heading text-4xl font-light tracking-tight text-gray-900">
+      <%= @post.title %>
+    </h2>
+
+    <div class="text-center mx-auto heading text-xl tracking-tight font-light">
+      <time datetime="<%= @post.created_at.strftime("%Y-%m-%d")%>">
+        <%= @post.created_at.strftime(" %A, %e %B %Y")%>
+      </time>
+    </div>
+  </div>
+
+  <div class="pt-8 prose prose-lg">
+    <%= @post.content %>
+  </div>
+</article>

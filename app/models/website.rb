@@ -4,6 +4,7 @@ class Website < ApplicationRecord
   belongs_to :account
 
   has_many :headers, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_one :location, as: :locatable, dependent: :destroy
   accepts_nested_attributes_for :location
 
@@ -25,6 +26,10 @@ class Website < ApplicationRecord
 
   def home_view_path
     "themes/#{current_or_default_theme}/home"
+  end
+
+  def view_path(view = "home")
+    "themes/#{current_or_default_theme}/#{view}"
   end
 
   def host_url(platform_host)

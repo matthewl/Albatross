@@ -1,6 +1,6 @@
 <% if @website.display_banner? %>
   <section class="p-4 text-center">
-    <div class="flex items-center rounded-xl bg-sky-100 p-2 px-8 leading-none text-sky-800 lg:inline-flex">
+    <div class="flex items-center rounded-xl p-2 px-8 leading-none lg:inline-flex <%= @light == true ? "bg-sky-100" : "bg-sky-800" %> <%= @light == true ? "text-sky-800" : "text-sky-100" %>">
       <span class="flex-auto font-semibold leading-loose text-sm">
         <%= @website.banner_text %>
       </span>

@@ -1,0 +1,11 @@
+mapleshore_hello_world:
+  website: mapleshore
+  title: Hello World!
+  status: published
+  slug: hello-world-12345
+
+drew_lang_hello_world:
+  website: drew_lang
+  title: Hello World!
+  status: published
+  slug: hello-world-98765

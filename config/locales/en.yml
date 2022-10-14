@@ -12,9 +12,9 @@ en:
         post_code: Zip / Post Code
         region: State / Province
       website:
-        name: Website name
         banner_enabled: Enable banner?
         banner_expires_at: Banner expiration date
+        name: Website name
   admin:
     background_image_component:
       alt: Background image
@@ -28,12 +28,29 @@ en:
         essentials:
           description: Your website's name and an optional sub-title
           title: Banner
-        submit: Save
+        submit: Update header
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
         upload_help_text: PNG, JPG, GIF up to 10MB
       update:
         success: Header updated successfully
+    posts:
+      create:
+        success: Post created successfully
+      destroy:
+        success: Post deleted successfully
+      edit:
+        essentials:
+          description: The title and body of your post
+          title: Essentials
+        submit: Update post
+      new:
+        essentials:
+          description: The title and body of your post
+          title: Essentials
+        submit: Create post
+      update:
+        success: Post updated successfully
     websites:
       edit:
         banner:
@@ -46,7 +63,7 @@ en:
           description: Provides an integrated map for your website.
           title: Location
         name: Website name
-        submit: Save
+        submit: Update website
       update:
         success: Website updated successfully
   errors:
