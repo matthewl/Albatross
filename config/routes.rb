@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/", to: "dashboard#index", as: :root
 
+    resource :footers, only: [:edit, :update]
     resources :headers, only: %i[edit update]
     resources :posts
     resources :websites, only: %i[edit update]

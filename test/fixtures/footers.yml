@@ -1,0 +1,9 @@
+mapleshore_footer:
+  website: mapleshore
+  display_address: true
+  display_copyright: true
+
+drew_lang_footer:
+  website: drew_lang
+  display_address: false
+  display_copyright: true
