@@ -5,8 +5,16 @@ class Themes::Links::FooterComponent < ViewComponent::Base
     @website = website
   end
 
+  def display_address?
+    @website.footer.display_address? && @website.location.present?
+  end
+
+  def display_copyright?
+    @website.footer.display_copyright?
+  end
+
   def address
-    @website.location.formatted_address if @website.location.present?
+    @website.location.formatted_address
   end
 
   def copyright

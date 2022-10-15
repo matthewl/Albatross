@@ -5,15 +5,17 @@
       <!-- TODO: Add social media icons here -->
     </div>
     <div class="pt-4 md:order-1 flex flex-col space-y-2">
-      <% if @website.location.present? %>
+      <% if display_address? %>
         <p class="text-base text-gray-500">
           <%= address %>
         </p>
       <% end %>
 
-      <p class="text-base text-gray-500">
-        <%= copyright %>
-      </p>
+      <% if display_copyright? %>
+        <p class="text-base text-gray-500">
+          <%= copyright %>
+        </p>
+      <% end %>
     </div>
   </div>
 </footer>

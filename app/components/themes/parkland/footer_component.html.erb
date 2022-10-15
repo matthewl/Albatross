@@ -10,15 +10,17 @@
 
 
     <div class="mt-8 space-y-2 heading text-center">
-      <% if @website.location.present? %>
+      <% if display_address? %>
         <p class="text-lg text-gray-600">
           <%= address %>
         </p>
       <% end %>
 
-      <p class="text-base text-gray-400">
-        <%= copyright %>
-      </p>
+      <% if display_copyright? %>
+        <p class="text-base text-gray-400">
+          <%= copyright %>
+        </p>
+      <% end %>
     </div>
   </div>
 </footer>
