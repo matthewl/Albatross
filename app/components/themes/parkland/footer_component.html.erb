@@ -1,4 +1,5 @@
 <footer class="bg-white">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
     <nav class="-mx-5 -my-2 flex text-lg flex-wrap justify-center" aria-label="Footer">
       <!-- TODO: Add page links here -->
@@ -6,8 +7,18 @@
     <div class="mt-8 flex justify-center space-x-6">
       <!-- TODO: Add social media links here -->
     </div>
-    <p class="heading mt-8 text-lg text-center text-gray-600">
-      <%= copyright %>
-    </p>
+
+
+    <div class="mt-8 space-y-2 heading text-center">
+      <% if @website.location.present? %>
+        <p class="text-lg text-gray-600">
+          <%= address %>
+        </p>
+      <% end %>
+
+      <p class="text-base text-gray-400">
+        <%= copyright %>
+      </p>
+    </div>
   </div>
 </footer>
