@@ -14,7 +14,7 @@ class Website < ApplicationRecord
   validates :subdomain, uniqueness: true, format: {with: /[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?/, message: "is invalid"}
   validate :banner_expiration_date_cannot_be_in_the_past
 
-  after_create :create_header
+  after_create :create_header, :create_default_footer
   after_update :update_account_name
 
   before_create do
@@ -61,6 +61,10 @@ class Website < ApplicationRecord
       welcome: "Welcome to",
       sub_title: "Website under construction"
     )
+  end
+
+  def create_default_footer
+    create_footer(display_address: false, display_copyright: true)
   end
 
   def update_account_name

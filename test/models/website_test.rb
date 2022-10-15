@@ -81,6 +81,15 @@ class WebsiteTest < ActiveSupport::TestCase
       assert_equal "Website under construction", website.headers.first.sub_title
     end
 
+    test "after_create creates a single footer" do
+      website = Website.new(@website_params)
+      website.account = accounts(:mapleshore_golf_club)
+      website.save
+
+      assert_equal false, website.footer.display_address
+      assert_equal true, website.footer.display_copyright
+    end
+
     test "after_update updates accounts name" do
       website = websites(:mapleshore)
       website.name = "Mapleshore Golf & Country Club"
