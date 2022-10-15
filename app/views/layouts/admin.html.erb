@@ -54,6 +54,10 @@
                 <a href="#" class="text-blue-100 hover:bg-blue-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   Header
                 </a>
+
+                <a href="#" class="text-blue-100 hover:bg-blue-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                  Footer
+                </a>
               </nav>
             </div>
           </div>
@@ -95,6 +99,14 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
                 </svg>
                 Header
+              <% end %>
+
+              <%= link_to(edit_admin_footers_path, class: "group flex items-center px-2 py-2 text-sm font-medium rounded-md #{primary_nav_classes('header')}") do %>
+                <!-- Heroicon name: outline/queue-list -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rotate-180 mr-3 flex-shrink-0 h-6 w-6 text-blue-200">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+                </svg>
+                Footer
               <% end %>
 
               <%= link_to(admin_posts_path, class: "group flex items-center px-2 py-2 text-sm font-medium rounded-md #{primary_nav_classes('post')}") do %>

@@ -1,0 +1,26 @@
+<footer class="bg-white">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
+    <nav class="-mx-5 -my-2 flex text-lg flex-wrap justify-center" aria-label="Footer">
+      <!-- TODO: Add page links here -->
+    </nav>
+    <div class="mt-8 flex justify-center space-x-6">
+      <!-- TODO: Add social media links here -->
+    </div>
+
+
+    <div class="mt-8 space-y-2 heading text-center">
+      <% if display_address? %>
+        <p class="text-lg text-gray-600">
+          <%= address %>
+        </p>
+      <% end %>
+
+      <% if display_copyright? %>
+        <p class="text-base text-gray-400">
+          <%= copyright %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</footer>

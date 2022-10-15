@@ -18,6 +18,14 @@ en:
   admin:
     background_image_component:
       alt: Background image
+    footers:
+      edit:
+        display_options:
+          description: Content you can display on your footer section
+          title: Display options
+        submit: Update footer
+      update:
+        success: Footer updated successfully
     headers:
       edit:
         background:
@@ -27,7 +35,7 @@ en:
         change: Upload
         essentials:
           description: Your website's name and an optional sub-title
-          title: Banner
+          title: Titles
         submit: Update header
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
