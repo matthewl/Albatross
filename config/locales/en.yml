@@ -27,7 +27,7 @@ en:
         change: Upload
         essentials:
           description: Your website's name and an optional sub-title
-          title: Banner
+          title: Titles
         submit: Update header
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
