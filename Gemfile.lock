@@ -96,6 +96,7 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     highline (2.0.3)
+    honeypot-captcha (1.0.1)
     html_tokenizer (0.0.7)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -272,6 +273,7 @@ DEPENDENCIES
   debug
   faker
   geocoder
+  honeypot-captcha
   i18n-tasks
   image_processing (>= 1.2)
   jsbundling-rails (~> 1.0)

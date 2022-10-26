@@ -33,6 +33,7 @@ end
 gem "country_select"
 gem "faker"
 gem "geocoder"
+gem "honeypot-captcha"
 gem "i18n-tasks"
 gem "tailwindcss-rails", "~> 2.0"
 gem "view_component"
