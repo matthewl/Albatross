@@ -3,6 +3,8 @@ class Website < ApplicationRecord
 
   belongs_to :account
 
+  has_many :enquiries, dependent: :destroy
+  has_many :enquiry_forms, dependent: :destroy
   has_many :headers, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_one :footer, dependent: :destroy

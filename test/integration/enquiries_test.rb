@@ -1,6 +1,6 @@
 require "test_helper"
 
-class EnquiryTest < ActionDispatch::IntegrationTest
+class EnquiriesTest < ActionDispatch::IntegrationTest
   setup do
     @host = "https://mapleshore.lvh.me"
   end

@@ -1,0 +1,9 @@
+mapleshore_enquiry_form_default:
+  website: mapleshore
+  title: Default Enquiry Form
+  default_form: true
+
+mapleshore_enquiry_form_lesson:
+  website: mapleshore
+  title: Lesson Enquiry Form
+  default_form: false
