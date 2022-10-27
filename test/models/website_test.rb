@@ -90,6 +90,16 @@ class WebsiteTest < ActiveSupport::TestCase
       assert_equal true, website.footer.display_copyright
     end
 
+    test "after_create creates a single default enquiry form" do
+      website = Website.new(@website_params)
+      website.account = accounts(:mapleshore_golf_club)
+      website.save
+
+      assert_equal 1, website.enquiry_forms.count
+      assert website.enquiry_forms.first.default_form
+      assert "General enquiry", website.enquiry_forms.first.title
+    end
+
     test "after_update updates accounts name" do
       website = websites(:mapleshore)
       website.name = "Mapleshore Golf & Country Club"

@@ -16,7 +16,7 @@ class Website < ApplicationRecord
   validates :subdomain, uniqueness: true, format: {with: /[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?/, message: "is invalid"}
   validate :banner_expiration_date_cannot_be_in_the_past
 
-  after_create :create_header, :create_default_footer
+  after_create :create_header, :create_default_footer, :create_default_enquiry_form
   after_update :update_account_name
 
   before_create do
@@ -25,6 +25,10 @@ class Website < ApplicationRecord
 
   def display_banner?
     banner_enabled? && banner_expires_at > DateTime.now && banner_text.present?
+  end
+
+  def default_enquiry_form
+    enquiry_forms.where(default_form: true).first
   end
 
   def home_view_path
@@ -67,6 +71,13 @@ class Website < ApplicationRecord
 
   def create_default_footer
     create_footer(display_address: false, display_copyright: true)
+  end
+
+  def create_default_enquiry_form
+    enquiry_forms.create(
+      title: "General enquiry",
+      default_form: true
+    )
   end
 
   def update_account_name
