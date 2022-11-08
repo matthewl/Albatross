@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :websites, only: %i[edit update]
   end
 
+  resources :enquiries, only: :create
   resources :posts, only: %i[show]
 
   root "home#index"

@@ -1,10 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
-require "minitest/rails"
-require "minitest/reporters"
-
-Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(:color => true)]
+require "maxitest/autorun"
 
 # Consider setting MT_NO_EXPECTATIONS to not add expectations to Object.
 # ENV["MT_NO_EXPECTATIONS"] = true
@@ -27,6 +24,7 @@ class ActiveSupport::TestCase
   end
 
   # Add more helper methods to be used by all tests here...
+  Capybara.app_host = "http://mapleshore.lvh.me"
 end
 
 ActiveStorage::FixtureSet.file_fixture_path = File.expand_path("fixtures/files", __dir__)

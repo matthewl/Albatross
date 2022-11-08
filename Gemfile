@@ -25,15 +25,16 @@ group :development do
 end
 
 group :test do
-  gem "minitest-rails", "~> 7.0.0"
-  gem "minitest-reporters"
+  gem "maxitest"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
 # Application dependencies
 gem "country_select"
 gem "faker"
 gem "geocoder"
-gem "honeypot-captcha"
 gem "i18n-tasks"
 gem "tailwindcss-rails", "~> 2.0"
 gem "view_component"
