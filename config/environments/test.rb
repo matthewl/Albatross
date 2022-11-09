@@ -52,10 +52,11 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   # Allowed hosts for test environment.
-  config.hosts << "www.lvh.me"
-  config.hosts << "mapleshore.lvh.me"
-  config.hosts << "drewlang.lvh.me"
-  config.hosts << "sabrehills.lvh.me"
-  config.hosts << "beechgrove.lvh.me"
-  config.hosts << "oakridge.lvh.me"
+  # TODO: Add "localhost" to the CI build script.
+  config.hosts << "www.test.localhost"
+  config.hosts << "mapleshore.test.localhost"
+  config.hosts << "drewlang.test.localhost"
+  config.hosts << "sabrehills.test.localhost"
+  config.hosts << "beechgrove.test.localhost"
+  config.hosts << "oakridge.test.localhost"
 end
