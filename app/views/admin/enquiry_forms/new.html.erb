@@ -1,0 +1,43 @@
+<% content_for(:title, "Enquiry Forms") %>
+
+<%= form_with(model: [:admin, @enquiry_form], local: true, multipart: true, class: "space-y-8", data: { turbo: false }) do |form| %>
+  <div class="px-4 py-5 bg-white shadow sm:rounded-lg sm:p-6">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <%= render partial: "shared/section_title", locals: { title: t(".essentials.title"), description: t(".essentials.description") } %>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="grid grid-cols-6 gap-6">
+          <div class="col-span-4 space-y-2">
+            <%= render(Admin::ErrorMessageComponent.new(resource: @enquiry_form, attributes: [:title, :introduction, :success_message])) %>
+          </div>
+
+          <div class="col-span-4 space-y-2">
+            <%= render(Admin::FormLabelComponent.new(form: form, attribute: :title)) %>
+            <div class="mt-1">
+              <%= form.text_field :title, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+          </div>
+
+          <div class="col-span-4 space-y-2">
+            <%= render(Admin::FormLabelComponent.new(form: form, attribute: :introduction)) %>
+            <div class="mt-1">
+              <%= form.text_field :introduction, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+          </div>
+
+          <div class="col-span-4 space-y-2">
+            <%= render(Admin::FormLabelComponent.new(form: form, attribute: :success_message)) %>
+            <div class="mt-1">
+              <%= form.text_field :success_message, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <%= form.submit t(".submit"), class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
+  </div>
+<% end %>

@@ -2,6 +2,10 @@
 en:
   activerecord:
     attributes:
+      enquiry_form:
+        introduction: Introduction
+        success_message: Success Message
+        title: Title
       header:
         sub_title: Sub-title
         title: Title
@@ -18,6 +22,21 @@ en:
   admin:
     background_image_component:
       alt: Background image
+    enquiry_forms:
+      create:
+        success: Enquiry Form created successfully
+      edit:
+        essentials:
+          description: The title and introduction for your enquiry form
+          title: Essentials
+        submit: Update enquiry form
+      new:
+        essentials:
+          description: The title and introduction for your enquiry form
+          title: Essentials
+        submit: Create enquiry form
+      update:
+        success: Footer updated successfully
     footers:
       edit:
         display_options:

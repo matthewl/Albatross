@@ -1,0 +1,52 @@
+<% content_for(:title, "Enquiry Forms") %>
+
+<div class="sm:flex sm:items-center">
+  <div class="sm:flex-auto">
+  </div>
+  <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+    <%= link_to("Add Enquiry Form", new_admin_enquiry_form_path, class: "inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:w-auto")%>
+  </div>
+</div>
+<div class="flex flex-col mt-8">
+  <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+      <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-300">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="py-3 pl-4 pr-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase sm:pl-6">Title</th>
+              <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase">Default Form</th>
+              <th scope="col" class="relative py-3 pl-3 pr-4 sm:pr-6">
+                <span class="sr-only">Actions</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <% @current_website.enquiry_forms.each do |e| %>
+              <tr id="<%= "enquiry_form_#{e.id}" %>">
+                <td id="<%= "enquiry_form_#{e.id}_title" %>" class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
+                  <%= e.title %>
+                </td>
+                <td id="<%= "enquiry_form_#{e.id}_default_form" %>" class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                  <% if e.default_form? %>
+                    <span class="inline-flex px-2 py-1 text-xs font-semibold leading-5 text-gray-800 bg-gray-100 rounded-full">Default form</span>
+                  <% end %>
+                </td>
+                <td class="flex items-center justify-end space-x-6 py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
+                  <%= link_to("Edit", edit_admin_enquiry_form_path(e), class: "text-blue-600 hover:text-blue-900") %>
+
+                  <% #TODO: Add a confirmation modal for deleting enquiry form %>
+                  <%= button_to(admin_enquiry_form_path(e), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'bg-red-500 hover:bg-red-600 text-white p-1 rounded', form_class: '') do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                      <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clip-rule="evenodd" />
+                    </svg>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
