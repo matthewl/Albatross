@@ -1,4 +1,4 @@
-class EnquiriesController < applicationController
+class EnquiriesController < ApplicationController
   def create
     enquiry = Enquiry.new
     enquiry.update(enquiry_params)
