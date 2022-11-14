@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_161743) do
   create_table "enquiries", force: :cascade do |t|
     t.bigint "website_id", null: false
     t.bigint "enquiry_form_id", null: false
+    t.integer "status", default: 0
     t.string "contact_name"
     t.string "contact_number"
     t.string "email"

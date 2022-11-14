@@ -3,6 +3,7 @@ class CreateEnquiries < ActiveRecord::Migration[7.0]
     create_table :enquiries do |t|
       t.references :website, null: false, foreign_key: true
       t.references :enquiry_form, null: false, foreign_key: true
+      t.integer :status, default: 0
       t.string :contact_name
       t.string :contact_number
       t.string :email
