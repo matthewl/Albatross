@@ -4,6 +4,10 @@ module Admin
       @enquiries = @current_website.enquiries
     end
 
+    def show
+      @enquiry = Enquiry.find(params[:id])
+    end
+
     def edit
       @post = @current_website.enquiries.find(params[:id])
     end
