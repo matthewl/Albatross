@@ -9,6 +9,7 @@ class CreateEnquiries < ActiveRecord::Migration[7.0]
       t.string :email
       t.string :email_confirmation
       t.text :message
+      t.datetime :closed_at
       t.timestamps
     end
   end

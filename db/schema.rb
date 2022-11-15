@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_161743) do
     t.string "email"
     t.string "email_confirmation"
     t.text "message"
+    t.datetime "closed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["enquiry_form_id"], name: "index_enquiries_on_enquiry_form_id"
