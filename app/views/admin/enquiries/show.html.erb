@@ -51,13 +51,13 @@
             <p class="mb-3 text-gray-700">
               <% if @enquiry.open? %>
                 This enquiry is <span class="text-green-700 font-bold">open</span>.
-                <%= button_to("#", method: :put, class: "mt-3 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded", form_class: "d-inline") do %>
+                <%= button_to(close_admin_enquiry_path(@enquiry), method: :put, class: "mt-3 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded", data: { turbo: false }) do %>
                   Mark enquiry as closed
                 <% end %>
               <% else %>
                 This enquiry is <span class="text-red-700 font-bold">closed</span>.
 
-                <%= button_to("#", method: :put, class: "mt-3 bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded", form_class: "d-inline") do %>
+                <%= button_to(open_admin_enquiry_path(@enquiry), method: :put, class: "mt-3 bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded", data: { turbo: false }) do %>
                   Mark enquiry as open
                 <% end %>
               <% end %>

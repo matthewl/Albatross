@@ -1,7 +1,7 @@
 module Admin
   class EnquiriesController < BaseController
     def index
-      @enquiries = @current_website.enquiries
+      @enquiries = @current_website.enquiries.order("created_at DESC")
     end
 
     def show
@@ -9,12 +9,12 @@ module Admin
     end
 
     def edit
-      @post = @current_website.enquiries.find(params[:id])
+      @enquiry = @current_website.enquiries.find(params[:id])
     end
 
     def update
-      @post = @current_website.enquiries.find(params[:id])
-      if @post.update(post_params)
+      @enquiry = @current_website.enquiries.find(params[:id])
+      if @enquiry.update(enquiry_params)
         redirect_to admin_enquiries_path, success: t(".success")
       else
         render :edit
@@ -23,12 +23,26 @@ module Admin
 
     def destroy
       @current_website.enquiries.find(params[:id]).destroy
-      redirect_to admin_posts_path, success: t(".success")
+      redirect_to admin_enquiries_path, success: t(".success")
+    end
+
+    def open
+      @enquiry = @current_website.enquiries.find(params[:id])
+      @enquiry.update_attribute(:closed_at, nil)
+      @enquiry.open!
+      redirect_to admin_enquiry_path(@enquiry)
+    end
+
+    def close
+      @enquiry = @current_website.enquiries.find(params[:id])
+      @enquiry.update_attribute(:closed_at, Time.zone.now)
+      @enquiry.closed!
+      redirect_to admin_enquiry_path(@enquiry)
     end
 
     private
 
-    def post_params
+    def enquiry_params
       params.require(:enquiry).permit(:title, :status, :content)
     end
   end

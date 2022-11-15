@@ -25,7 +25,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/", to: "dashboard#index", as: :root
 
-    resources :enquiries
+    resources :enquiries do
+      member do
+        put "open"
+        put "close"
+      end
+    end
     resources :enquiry_forms
     resource :footers, only: [:edit, :update]
     resources :headers, only: %i[edit update]

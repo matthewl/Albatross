@@ -14,7 +14,7 @@
         <table class="min-w-full divide-y divide-gray-300">
           <thead class="bg-gray-50">
             <tr>
-              <th scope="col" class="py-3 pl-4 pr-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase sm:pl-6">Sent On</th>
+              <th scope="col" class="py-3 pl-4 pr-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase sm:pl-6">Received On</th>
               <th scope="col" class="py-3 pl-4 pr-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase sm:pl-6">Enquiry Form</th>
               <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase">Status</th>
               <th scope="col" class="relative py-3 pl-3 pr-4 sm:pr-6">
@@ -26,7 +26,7 @@
             <% @current_website.enquiries.each do |enquiry| %>
               <tr id="<%= "enquiry_#{enquiry.id}" %>">
                 <td id="<%= "enquiry_#{enquiry.id}_created_at" %>" class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
-                  <%= enquiry.created_at %>
+                  <span class="mr-2"><%= enquiry.created_at.strftime("%A, %b %e") %></span><span><%= enquiry.created_at.strftime("%l:%M %p") %></span>
                 </td>
                 <td id="<%= "enquiry_#{enquiry.id}_enquiry_form" %>" class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
                   <%= enquiry.enquiry_form.title %>
@@ -35,7 +35,7 @@
                   <% if enquiry.open? %>
                     <span class="inline-flex px-2 py-1 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Open</span>
                   <% else %>
-                    <span class="inline-flex px-2 py-1 text-xs font-semibold leading-5 text-gray-800 bg-gray-100 rounded-full">Closed</span>
+                    <span class="inline-flex px-2 py-1 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">Closed</span>
                   <% end %>
                 </td>
                 <td class="flex items-center justify-end space-x-6 py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
