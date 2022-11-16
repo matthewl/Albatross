@@ -7,6 +7,6 @@ class Themes::Links::EnquiryFormComponent < ViewComponent::Base
   end
 
   def render?
-    @enquiry_form.present?
+    @enquiry_form.present? && @enquiry_form.active?
   end
 end
