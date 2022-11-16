@@ -5,4 +5,8 @@ class Themes::Parkland::EnquiryFormComponent < ViewComponent::Base
     @website = website
     @enquiry_form = @website.default_enquiry_form
   end
+
+  def render?
+    @enquiry_form.present?
+  end
 end
