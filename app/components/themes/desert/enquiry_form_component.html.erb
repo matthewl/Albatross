@@ -26,14 +26,14 @@
         <div class="space-y-2">
           <%= f.label :contact_number, "Contact number", class: "block font-light text-gray-700" %>
           <div class="mt-1 border-b border-gray-300 focus-within:border-gray-600">
-            <%= f.text_field :contact_number, class: "block w-full border-0 border-b border-transparent bg-gray-50 focus:border-gray-600 focus:ring-0", autocomplete: "off" %>
+            <%= f.telephone_field :contact_number, class: "block w-full border-0 border-b border-transparent bg-gray-50 focus:border-gray-600 focus:ring-0", autocomplete: "off" %>
           </div>
         </div>
 
         <div class="space-y-2">
           <%= f.label :email, class: "block font-light text-gray-700" %>
           <div class="mt-1 border-b border-gray-300 focus-within:border-gray-600">
-            <%= f.text_field :email, class: "block w-full border-0 border-b border-transparent bg-gray-50 focus:border-gray-600 focus:ring-0", required: true, autocomplete: "off" %>
+            <%= f.email_field :email, class: "block w-full border-0 border-b border-transparent bg-gray-50 focus:border-gray-600 focus:ring-0", required: true, autocomplete: "off" %>
           </div>
           <div class="text-sm font-light text-gray-500">
             We require your email address to get back in touch with you.
