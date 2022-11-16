@@ -6,6 +6,7 @@ en:
         introduction: Introduction
         success_message: Success Message
         title: Title
+        active: Turn on enquiry form?
       header:
         sub_title: Sub-title
         title: Title

@@ -42,7 +42,7 @@ module Admin
     def enquiry_form_params
       params
         .require(:enquiry_form)
-        .permit(:title, :introduction, :success_message)
+        .permit(:title, :introduction, :success_message, :active)
     end
 
     def set_default_enquiry_form

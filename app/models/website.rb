@@ -55,6 +55,13 @@ class Website < ApplicationRecord
     ]
   end
 
+  # TODO: Extract this into a pricing model for each website to allow us to
+  # determine what functionality is available to the website based on the
+  # pricing plan.
+  def subscribed?
+    false
+  end
+
   private
 
   def current_or_default_theme
@@ -76,7 +83,8 @@ class Website < ApplicationRecord
   def create_default_enquiry_form
     enquiry_forms.create(
       title: "General enquiry",
-      default_form: true
+      default_form: true,
+      active: false
     )
   end
 
