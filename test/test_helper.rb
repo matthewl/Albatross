@@ -24,7 +24,7 @@ class ActiveSupport::TestCase
   end
 
   # Add more helper methods to be used by all tests here...
-  Capybara.app_host = "http://mapleshore.lvh.me"
+  Capybara.app_host = "http://mapleshore.test.localhost"
 end
 
 ActiveStorage::FixtureSet.file_fixture_path = File.expand_path("fixtures/files", __dir__)

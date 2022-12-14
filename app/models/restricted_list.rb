@@ -1,5 +1,5 @@
 class RestrictedList
   def self.retrieve_ips
-    %w[www.lvh.me]
+    %w[www.test.localhost]
   end
 end

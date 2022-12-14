@@ -2,7 +2,7 @@ require "test_helper"
 
 class HomeTest < ActionDispatch::IntegrationTest
   setup do
-    @host = "https://mapleshore.lvh.me"
+    @host = "https://mapleshore.test.localhost"
   end
 
   test "can navigate to the home page of a website" do
@@ -11,7 +11,7 @@ class HomeTest < ActionDispatch::IntegrationTest
   end
 
   test "can navigate to the marketing home page" do
-    get "https://www.lvh.me/"
+    get "https://mapleshore.test.localhost"
     assert_response :success
   end
 end

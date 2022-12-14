@@ -62,11 +62,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_212028) do
   create_table "enquiries", force: :cascade do |t|
     t.bigint "website_id", null: false
     t.bigint "enquiry_form_id", null: false
+    t.integer "status", default: 0
     t.string "contact_name"
     t.string "contact_number"
     t.string "email"
     t.string "email_confirmation"
     t.text "message"
+    t.datetime "closed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["enquiry_form_id"], name: "index_enquiries_on_enquiry_form_id"

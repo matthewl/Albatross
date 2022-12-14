@@ -2,7 +2,7 @@ require "test_helper"
 
 class EnquiriesTest < ActionDispatch::IntegrationTest
   setup do
-    @host = "https://mapleshore.lvh.me"
+    @host = "https://mapleshore.test.localhost"
   end
 
   test "can render the enquiry form on the website" do

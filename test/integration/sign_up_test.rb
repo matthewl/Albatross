@@ -2,10 +2,10 @@ require "test_helper"
 
 class SignUpTest < ActionDispatch::IntegrationTest
   test "can sign up an account" do
-    get "https://www.lvh.me/sign_up"
+    get "https://www.test.localhost/sign_up"
     assert_response :success
 
-    post "https://www.lvh.me/sign_up",
+    post "https://www.test.localhost/sign_up",
       params: {account: {name: "Oakridge Golf Club", subdomain: "oakridge"}}
     assert_response :redirect
 
