@@ -42,12 +42,13 @@ module Admin
     def enquiry_form_params
       params
         .require(:enquiry_form)
-        .permit(:title, :introduction, :success_message, :active)
+        .permit(:title, :introduction, :success_message, :active, :default_form)
     end
 
     def set_default_enquiry_form
-      return if @enquiry_form.website.enquiry_forms.count > 1
-      @enquiry_form.update_attribute(:default_form, true)
+      if @enquiry_form.default_form?
+        @enquiry_form.website.enquiry_forms.where.not(id: @enquiry_form.id).update_all(default_form: false)
+      end
     end
   end
 end
