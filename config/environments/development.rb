@@ -64,7 +64,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Allowed hosts for development
-  config.hosts << "www.lvh.me"
-  config.hosts << "mapleshore.lvh.me"
-  config.hosts << "sabrehills.lvh.me"
+  config.hosts << "www.dev.localhost"
+  config.hosts << "mapleshore.dev.localhost"
+  config.hosts << "sabrehills.dev.localhost"
 end

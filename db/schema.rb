@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_15_105533) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_16_212028) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -57,6 +57,34 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_105533) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "enquiries", force: :cascade do |t|
+    t.bigint "website_id", null: false
+    t.bigint "enquiry_form_id", null: false
+    t.integer "status", default: 0
+    t.string "contact_name"
+    t.string "contact_number"
+    t.string "email"
+    t.string "email_confirmation"
+    t.text "message"
+    t.datetime "closed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enquiry_form_id"], name: "index_enquiries_on_enquiry_form_id"
+    t.index ["website_id"], name: "index_enquiries_on_website_id"
+  end
+
+  create_table "enquiry_forms", force: :cascade do |t|
+    t.bigint "website_id", null: false
+    t.string "title"
+    t.string "introduction"
+    t.string "success_message"
+    t.boolean "default_form", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "active", default: false
+    t.index ["website_id"], name: "index_enquiry_forms_on_website_id"
   end
 
   create_table "footers", force: :cascade do |t|
@@ -124,6 +152,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_105533) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "enquiries", "enquiry_forms"
+  add_foreign_key "enquiries", "websites"
+  add_foreign_key "enquiry_forms", "websites"
   add_foreign_key "footers", "websites"
   add_foreign_key "headers", "websites"
   add_foreign_key "posts", "websites"

@@ -2,7 +2,7 @@ require "test_helper"
 
 class Admin::FooterTest < ActionDispatch::IntegrationTest
   setup do
-    host = "https://mapleshore.lvh.me"
+    host = "https://mapleshore.test.localhost"
     @admin_url = "#{host}/admin/footers"
   end
 

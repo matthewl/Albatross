@@ -12,14 +12,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # TODO: Extract hard-coded subdomains into the credentials file.
   def subdomain_host?
-    return request.host.include?("lvh.me") if Rails.env.development? || Rails.env.test?
+    return request.host.include?("dev.localhost") if Rails.env.development?
+    return request.host.include?("test.localhost") if Rails.env.test?
     return request.host != PROVIDER_DOMAIN && request.host.include?("albratrosscms.com") if Rails.env.production?
   end
 
+  # TODO: Extract hard-coded subdomains into the credentials file.
   def platform_host
     return ".albatrosscms.com" if Rails.env.production?
+    return ".test.localhost" if Rails.env.test?
 
-    ".lvh.me"
+    ".dev.localhost" if Rails.env.development?
   end
 end

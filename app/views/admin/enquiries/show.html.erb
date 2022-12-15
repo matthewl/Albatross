@@ -1,0 +1,68 @@
+<% content_for(:title, "Enquiries") %>
+
+<div class="px-4 py-5 bg-white shadow sm:rounded-lg sm:p-6">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-3">
+      <%= render partial: "shared/section_title", locals: { title: "Enquiry", description: "" } %>
+    </div>
+
+    <div class="space-y-4 md:col-span-1">
+      <div class="space-y-2">
+        <p class="block mb-1 font-bold text-gray-600">
+          Contact
+        </p>
+
+        <p class="block mb-1 font-medium text-gray-600">
+          <%= @enquiry.contact_name %>
+        </p>
+
+        <% if @enquiry.contact_number.present? %>
+          <p>
+            Contact number: <%= @enquiry.contact_number %>
+          </p>
+        <% end %>
+
+        <% if @enquiry.email.present? %>
+          <p>
+            Email: <%= @enquiry.email %>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="space-y-2">
+        <p class="block mb-1 font-bold text-gray-600">
+          Status
+        </p>
+
+        <p class="mb-3 text-gray-700">
+          <% if @enquiry.open? %>
+            This enquiry is <span class="font-bold text-green-700">open</span>.
+            <%= button_to(close_admin_enquiry_path(@enquiry), method: :put, class: "mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded", data: { turbo: false }) do %>
+              Mark enquiry as closed
+            <% end %>
+          <% else %>
+            This enquiry is <span class="font-bold text-red-700">closed</span>.
+
+            <%= button_to(open_admin_enquiry_path(@enquiry), method: :put, class: "mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded", data: { turbo: false }) do %>
+              Mark enquiry as open
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="grid grid-cols-6 gap-6">
+          <div class="col-span-6 space-y-2">
+            <p class="block mb-1 font-bold text-gray-600">
+              Message
+            </p>
+
+            <div class="p-4 leading-relaxed bg-gray-200 rounded">
+              <span class="leading-normal"><%= @enquiry.message %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

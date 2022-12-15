@@ -25,8 +25,10 @@ group :development do
 end
 
 group :test do
-  gem "minitest-rails", "~> 7.0.0"
-  gem "minitest-reporters"
+  gem "maxitest"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
 # Application dependencies

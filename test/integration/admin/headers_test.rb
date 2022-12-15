@@ -2,7 +2,7 @@ require "test_helper"
 
 class Admin::HeadersTest < ActionDispatch::IntegrationTest
   setup do
-    host = "https://mapleshore.lvh.me"
+    host = "https://mapleshore.test.localhost"
     @admin_url = "#{host}/admin/headers/#{headers(:mapleshore_welcome).id}"
     @title = "Mapleshore GC"
     @sub_title = "Home of country golf"
