@@ -1,10 +1,10 @@
-<div class="w-full sm:rounded-lg sm:shadow-sm p-4 bg-red-100">
+<div class="w-full p-4 bg-red-100 sm:rounded-lg sm:shadow-sm">
   <div class="flex flex-col">
     <h3 class="text-sm font-medium red">
       <%= I18n.t "errors.messages.not_saved", count: @errors.count, resource: @resource.class.model_name.human.downcase %>
     </h3>
 
-    <div class="text-sm flex-1 md:flex md:justify-between">
+    <div class="flex-1 text-sm md:flex md:justify-between">
       <%= content_tag(:ul, role: "list", class: "list-disc space-y-1 mt-2 pl-5") do %>
         <% @errors.each do |message| %>
           <%= content_tag(:li, message) %>
