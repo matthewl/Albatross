@@ -10,4 +10,12 @@ class Themes::Links::SubTitleComponentTest < ViewComponent::TestCase
       render_inline(Themes::Links::SubTitleComponent.new(sub_title: sub_title)).to_html
     )
   end
+
+  test "does not render when the sub-title is not present" do
+    sub_title = ""
+    refute_match(
+      /mt-3 text-xl text-gray-500/,
+      render_inline(Themes::Links::SubTitleComponent.new(sub_title: sub_title)).to_html
+    )
+  end
 end

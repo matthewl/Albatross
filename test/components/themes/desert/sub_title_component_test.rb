@@ -10,4 +10,12 @@ class Themes::Desert::SubTitleComponentTest < ViewComponent::TestCase
       render_inline(Themes::Desert::SubTitleComponent.new(sub_title: sub_title)).to_html
     )
   end
+
+  test "does not render when the sub-title is not present" do
+    sub_title = ""
+    refute_match(
+      /mt-4 text-lg tracking-tight text-gray-500 heading/,
+      render_inline(Themes::Links::SubTitleComponent.new(sub_title: sub_title)).to_html
+    )
+  end
 end
