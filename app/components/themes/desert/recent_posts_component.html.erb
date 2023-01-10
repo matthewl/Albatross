@@ -1,20 +1,15 @@
 <!-- Blog posts -->
-<section class="bg-white p-12">
-  <div class="relative mx-auto max-w-5xl">
+<section class="p-12 bg-white">
+  <div class="relative max-w-5xl mx-auto">
     <div class="text-center">
-      <h2 class="text-4xl font-light tracking-tight text-gray-900">
-        <%= title %>
-      </h2>
-      <p class="heading mt-4 text-lg tracking-tight text-gray-500">
-        <%= sub_title %>
-      </p>
+      <%= render(Themes::Desert::TitleComponent.new(title: title, sub_title: sub_title)) %>
     </div>
-    <div class="mt-12 grid gap-16 pt-8 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-16">
+    <div class="grid gap-16 pt-8 mt-12 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-16">
       <% @posts.each do |post| %>
         <div>
           <%= link_to(post_path(id: post.slug), class: "block divide-dashed divide-y-2 divide-gray-500/50") do %>
-            <div class="flex flex-col space-y-2 text-sm text-gray-500 pb-6">
-              <p class="heading text-xl font-light tracking-tight text-gray-900">
+            <div class="flex flex-col pb-6 space-y-2 text-sm text-gray-500">
+              <p class="text-xl font-light tracking-tight text-gray-900 heading">
                 <%= post.title %>
               </p>
               <time datetime="<%= post.created_at.strftime("%Y-%m-%d")%>">
