@@ -17,4 +17,14 @@ class Themes::Links::TitleComponentTest < ViewComponent::TestCase
       render_inline(Themes::Links::TitleComponent.new(title: title, sub_title: sub_title)).to_html
     )
   end
+
+  test "does not render when title is not present" do
+    title = ""
+    sub_title = "All the recent news from your golf club"
+
+    refute_match(
+      /All the recent news from your golf club/,
+      render_inline(Themes::Desert::TitleComponent.new(title: title, sub_title: sub_title)).to_html
+    )
+  end
 end
